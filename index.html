@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="navbar">
+            <h1>Project Portfolio</h1>
+        </div>
+
+        <div class="responsive-wrapper">
+            <div class="project-container">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h2>Mobile App for Tourism in Pichincha</h2>
+                    <p>A Mobile application developed in Flutter focused on Ecuador's tourist sites with API simulation and QR code integration..</p>
+                    
+                    <!-- Image Carousel -->
+                    <div class="carousel">
+                        <div class="carousel-images">
+                            <img src="movil/inicio.jpg" alt="Login" class="carousel-img" />
+                            <img src="movil/login.jpg" alt="Register" class="carousel-img" />
+                            <img src="movil/muestra.jpg" alt="QR Code" class="carousel-img" />
+                            <img src="movil/opciones.jpg" alt="Options" class="carousel-img" />
+                            <img src="movil/slider.jpg" alt="Slider" class="carousel-img" />
+                            <img src="movil/Qr.jpg" alt="QR Code" class="carousel-img" />
+                        </div>
+                        <button class="prev">&#10094;</button>
+                        <button class="next">&#10095;</button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h2>Website for Prowess EC</h2>
+                    <p>Promotion and sale of products using JavaScript, with an inventory system and sales record management.</p>
+                    
+                    <!-- Image Carousel -->
+                    <div class="carousel">
+                        <div class="carousel-images">
+                            <img src="web/dash.png" alt="Screenshot 1" class="carousel-img" />
+                            <img src="web/inicio.png" alt="Screenshot 2" class="carousel-img" />
+                            <img src="web/lista tiendas.png" alt="Screenshot 3" class="carousel-img" >
+                            <img src="web/loginprowes.png" alt="Screenshot 4" class="carousel-img" />
+                            <img src="web/register.png" alt="Screenshot 5" class="carousel-img" />
+                        </div>
+                        <button class="prev">&#10094;</button>
+                        <button class="next">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 -  This site is under constant update</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const carousels = document.querySelectorAll(".carousel");
+
+            carousels.forEach((carousel) => {
+                let currentIndex = 0;
+                const imagesContainer = carousel.querySelector(".carousel-images");
+                const images = imagesContainer.querySelectorAll(".carousel-img");
+                const totalImages = images.length;
+
+                function updateCarousel() {
+                    imagesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+
+                carousel.querySelector(".prev").addEventListener("click", function () {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+
+                carousel.querySelector(".next").addEventListener("click", function () {
+                    if (currentIndex < totalImages - 1) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+
+                updateCarousel();
+            });
+        });
+    </script>
+
+</body>
+</html>
